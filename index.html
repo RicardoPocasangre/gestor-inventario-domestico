@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de inventario doméstico</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>Gestor de inventario doméstico</h1>
+
+    <section class="indicadores" aria-label="Resumen del inventario">
+      <p>Productos: <strong id="total-productos">0</strong></p>
+      <p>Unidades: <strong id="total-unidades">0</strong></p>
+      <p>Valor total <strong>$<span id="valor-total">0.00</span></strong></p>
+      <p>Agotados: <strong id="total-agotados">0</strong></p>
+    </section>
+
+    <section>
+      <h2>Agregar producto</h2>
+      <form id="formulario-producto" novalidate>
+        <label>Nombre
+          <input type="text" name="nombre" id="nombre">
+        </label>
+        <label>Categoría
+          <input type="text" name="categoria" id="categoria">
+        </label>
+        <label>Cantidad
+          <input type="number" name="cantidad" id="cantidad" step="1">
+        </label>
+        <label>Precio
+          <input type="number" name="precio" id="precio" step="0.01">
+        </label>
+        <button type="submit">Agregar producto</button>
+      </form>
+      <p id="mensaje-error" role="alert"></p>
+    </section>
+
+    <section>
+      <h2>Inventario</h2>
+      <label>Filtrar por categoría
+        <select id="filtro-categoria">
+          <option value="todas">todas</option>
+        </select>
+      </label>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Subtotal</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo-inventario"></tbody>
+      </table>
+      <p id="mensaje-vacio" hidden>No hay productos que mostrar.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
